@@ -1,0 +1,42 @@
+# Base16 oomox-orange-rainbow 256 - alacritty color config
+# oomox-orange-rainbow
+colors:
+  # Default colors
+  primary:
+    background: '0xfa8128'
+    foreground: '0x804541'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0xfa8128'
+    cursor: '0x804541'
+
+  # Normal colors
+  normal:
+    black:   '0xfa8128'
+    red:     '0xffbc51'
+    green:   '0xfae300'
+    yellow:  '0xffcd00'
+    blue:    '0xfed3d7'
+    magenta: '0xffb8d7'
+    cyan:    '0x72e981'
+    white:   '0x804541'
+
+  # Bright colors
+  bright:
+    black:   '0xbd6234'
+    red:     '0xffbc51'
+    green:   '0xfae300'
+    yellow:  '0xffcd00'
+    blue:    '0xfed3d7'
+    magenta: '0xffb8d7'
+    cyan:    '0x72e981'
+    white:   '0x804541'
+
+  indexed_colors:
+    - { index: 16, color: '0xffc700' }
+    - { index: 17, color: '0xebad14' }
+    - { index: 18, color: '0x804541' }
+    - { index: 19, color: '0x804541' }
+    - { index: 20, color: '0xff953c' }
+    - { index: 21, color: '0x642210' }
