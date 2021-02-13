@@ -1,0 +1,19 @@
+# vi:syntax=toml
+
+# base16-i3status-rust (https://github.com/mystfox/base16-i3status-rust)
+# oomox-orange-rainbow by oomox-orange-rainbow
+
+[theme]
+name = "solarized-dark"
+[theme.overrides]
+idle_bg = "#fa8128"
+idle_fg = "#804541"
+info_bg = "#72e981"
+info_fg = "#fa8128"
+good_bg = "#fae300"
+good_fg = "#fa8128"
+warning_bg = "#ffcd00"
+warning_fg = "#fa8128"
+critical_bg = "#ffbc51"
+critical_fg = "#fa8128"
+# The rest of the theme settings are left at default.
