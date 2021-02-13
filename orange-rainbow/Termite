@@ -1,0 +1,49 @@
+[colors]
+# Base16 oomox-orange-rainbow
+# Author: oomox-orange-rainbow
+
+foreground          = #804541
+foreground_bold     = #804541
+cursor              = #804541
+cursor_foreground   = #fa8128
+background          = #fa8128
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #fa8128
+color8  = #bd6234
+color7  = #804541
+color15 = #804541
+
+# Red
+color1  = #ffbc51
+color9  = #ffbc51
+
+# Green
+color2  = #fae300
+color10 = #fae300
+
+# Yellow
+color3  = #ffcd00
+color11 = #ffcd00
+
+# Blue
+color4  = #fed3d7
+color12 = #fed3d7
+
+# Purple
+color5  = #ffb8d7
+color13 = #ffb8d7
+
+# Teal
+color6  = #72e981
+color14 = #72e981
+
+# Extra colors
+color16 = #ffc700
+color17 = #ebad14
+color18 = #804541
+color19 = #804541
+color20 = #ff953c
+color21 = #642210
