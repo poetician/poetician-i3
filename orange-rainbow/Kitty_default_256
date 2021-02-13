@@ -1,0 +1,43 @@
+# Base16 oomox-orange-rainbow - kitty color config
+# Scheme by oomox-orange-rainbow
+background #fa8128
+foreground #804541
+selection_background #804541
+selection_foreground #fa8128
+url_color #ff953c
+cursor #804541
+active_border_color #bd6234
+inactive_border_color #804541
+active_tab_background #fa8128
+active_tab_foreground #804541
+inactive_tab_background #804541
+inactive_tab_foreground #ff953c
+tab_bar_background #804541
+
+# normal
+color0 #fa8128
+color1 #ffbc51
+color2 #fae300
+color3 #ffcd00
+color4 #fed3d7
+color5 #ffb8d7
+color6 #72e981
+color7 #804541
+
+# bright
+color8 #bd6234
+color9 #ffbc51
+color10 #fae300
+color11 #ffcd00
+color12 #fed3d7
+color13 #ffb8d7
+color14 #72e981
+color15 #804541
+
+# extended base16 colors
+color16 #ffc700
+color17 #ebad14
+color18 #804541
+color19 #804541
+color20 #ff953c
+color21 #642210
