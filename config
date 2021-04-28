@@ -1,17 +1,17 @@
 #ᰜᰜᰜ ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸  ᰜ ᰜ ᗿᙀጣЪ𐔹ᙦβᗕ𑄺-ⴝㆤᎯէᙀᎦЪДⴽ ᕮᗤ𐏒𐌕𐏒𐀏ꤚ ᰜᰜᰜ#
-#ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
+#ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
 
-# https://thenextpoetician.blogspot.com/      # https://pastebin.com/u/poetician
+# https://github.com/poetician      # https://pastebin.com/u/poetician
 
 # Developer URL:https://i3wm.org/
 # Version: 4.19.1 (2021-02-01) © 2009 Michael Stapelberg and contributors.
 
 # Derived in part from ArcoLinux default:
-# https://arcolinux.info/ # https://github.com/arcolinux
+# https://github.com/arcolinux
 
 #ᰜᰜᰜᰜᰜᰜ Key Names ᰜᰜᰜᰜᰜᰜ#
 
-# Mod = Super key / Mod4        # Ctrl = Ctrl key            # Mod1 = Alt key
+# Mod = Super key / Mod4        # Ctrl = Ctrl key               # Mod1 = Alt key
 # Shift = Shift key             # Return = Enter or Return key  # Escape = Escape key
 # Pause = Pause key             # Print = Print key             # Tab = Tab key
 
@@ -70,11 +70,15 @@ bindsym $mod+x exec arcolinux-logout
 #ᰜᰜᰜᰜᰜᰜ Resize Windows ᰜᰜᰜᰜᰜᰜ#
 # Resizing windows with keyboard only: https://unix.stackexchange.com/q/255344/150597
 
-# Resizing by 1
 bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
 bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
 bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
 bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
+
+bindsym Ctrl+Shift+Right resize grow width 10 px or 10 ppt
+bindsym Ctrl+Shift+Up resize shrink height 10 px or 10 ppt
+bindsym Ctrl+Shift+Down resize grow height 10 px or 10 ppt
+bindsym Ctrl+Shift+Left resize shrink width 10 px or 10 ppt
 
 #ᰜᰜᰜᰜᰜᰜ Resize i3 Gaps ᰜᰜᰜᰜᰜᰜ#
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left current|all set|plus|minus|toggle
@@ -100,9 +104,9 @@ floating_modifier $mod
 bindsym Ctrl+space floating toggle
 
 # Change Focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 bindsym $mod+h focus left
@@ -111,15 +115,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # Move Focused Window
-bindsym $mod+Shift+Left move left 1px
-bindsym $mod+Shift+Down move down 1px
-bindsym $mod+Shift+Up move up 1px
-bindsym $mod+Shift+Right move right 1px
-
-bindsym $mod+Mod1+Right move right 5 px
-bindsym $mod+Mod1+Up move up 5 px
-bindsym $mod+Mod1+Down move down 5 px
-bindsym $mod+Mod1+Left moveleft 5 px
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Navigating Workspaces ᰜᰜᰜᰜᰜᰜ#
@@ -226,8 +225,8 @@ bar {
     # https://github.com/tobi-wan-kenobi/bumblebee-status
     status_command ~/.config/bumblebee-status/bumblebee-status \
     -m network_traffic disk cpu \
-    -m weather -p weather.location=######## weather.showminmax=true \
-    -m sun -p cpu.lat=### cpu.lat=### -m redshift \
+    -m weather -p weather.location=Notre-dame-du-laus weather.showminmax=true \
+    -m sun -p cpu.lat=46.1 cpu.lat=-75.6 -m redshift \
     -m uptime datetime -p datetime.format=" %c " \
     -t orange-rainbow-long
 
@@ -362,7 +361,7 @@ exec pystopwatch
 for_window [class="vlc"] floating enable, move position 3220 180, resize set 520 100
 exec vlc
 bindsym $mod+v exec vlc
-for_window [class="Xscreensaver-demo"] floating enable, move position 2040 510, resize set 1112 530
+for_window [class="Xscreensaver-demo"] floating enable, move position 1932 460, resize set 1088 608
 exec_always --no-startup-id xscreensaver
 exec --no-startup-id xscreensaver-demo
 bindsym $mod+Ctrl+x exec xscreensaver-demo
@@ -404,7 +403,7 @@ set $ws14 "14"
 assign [class="Gcolor2|Lxappearance|Oomox|__main__.py"] $ws14
 for_window [class="Gcolor2"]focus, move position 3220 40
 for_window [class="Oomox"] focus, floating enable, resize set 1260 990, move position 1925 40
-for_window [class="Lxappearance"] focus, floating enable, resize set 880 440, move position 2900 610
+for_window [class="Lxappearance"] focus, floating enable, resize set 880 510, move position 2924 520
 bindsym $mod+Shift+g exec gcolor2
 bindsym $mod+Ctrl+a exec lxappearance
 bindsym $mod+o exec oomox-gui
@@ -466,7 +465,7 @@ bindsym Ctrl+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 bindsym $mod+Ctrl+n exec xfce4-notes
 
-for_window [class="Pamac-manager"] focus, floating enable, resize set 720 540, move position 600 80
+for_window [class="Pamac-manager"] focus, floating enable
 bindsym Ctrl+mod1+g exec --no-startup-id pamac-manager
 
 bindsym $mod+Mod1+i exec inkscape
