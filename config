@@ -11,18 +11,15 @@
 
 #ᰜᰜᰜᰜᰜᰜ Key Names ᰜᰜᰜᰜᰜᰜ#
 
-# Mod = Super key / Mod4        # Ctrl = Ctrl key               # Mod1 = Alt key
+# Mod = Super key / Mod4        # Control = Ctrl key            # Mod1 = Alt key
 # Shift = Shift key             # Return = Enter or Return key  # Escape = Escape key
 # Pause = Pause key             # Print = Print key             # Tab = Tab key
 
 # Define the $mod variable key
 set $mod Mod4
 
-# Define the movement keys
-set $left h
-set $down j
-set $up k
-set $right l
+#ᰜᰜᰜᰜᰜᰜ Enable/disable logging ᰜᰜᰜᰜᰜᰜ#
+bindsym $mod+u debuglog toggle
 
 #ᰜᰜᰜᰜᰜᰜ Dual Monitor Setup ᰜᰜᰜᰜᰜᰜ#
 
@@ -146,11 +143,6 @@ bindsym $mod+Down  focus down
 bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
-
 # Move Focused Window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -176,32 +168,25 @@ workspace_auto_back_and_forth yes
 #########################################
 #ᰜᰜᰜᰜᰜᰜ Tiling Parameters ᰜᰜᰜᰜᰜᰜ#
 
-# workspace_layout default|stacking|tabbed
+# Workspace_layout default|stacking|tabbed
 workspace_layout default
 
-# orientation for new workspaces
+# Orientation for new workspaces
 default_orientation horizontal
 
-# split in horizontal orientation
-# split in vertical orientation
-
-# enter fullscreen mode for the focused container
+# Enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
-## Not used
-
-# change focus between tiling / floating windows
+# Change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
-# focus the parent container
+# Focus the parent container
 bindsym $mod+a focus parent
-# focus the child "HHVH"
+
+# Focus the child "HHVH"
 bindsym $mod+d focus child
 
-##########################################
-#ᰜᰜᰜᰜᰜᰜ Application focus ᰜᰜ ᰜᰜᰜᰜ#
-
+# Application focus
 focus_on_window_activation smart
 
 ####################################################
@@ -224,9 +209,9 @@ bar {
     # OPTION 1 : Bumblebee-status
     # https://github.com/tobi-wan-kenobi/bumblebee-status
     status_command ~/.config/bumblebee-status/bumblebee-status \
-    -m network_traffic disk cpu \
-    -m weather -p weather.location=########## weather.showminmax=true \
-    -m sun -p cpu.lat=#### cpu.lat=#### -m redshift \
+    -m spacer network_traffic disk cpu \
+    -m weather -p weather.location=Notre-dame-du-laus weather.showminmax=true \
+    -m sun -p cpu.lat=46.1 cpu.lat=-75.6 -m redshift \
     -m uptime datetime -p datetime.format=" %c " \
     -t orange-rainbow-long
 
@@ -241,14 +226,14 @@ bar {
     # i3 bar colors
 
 colors {
-        background  #80400b40
+        background  #80400b1a
         statusline  #fa8128
         separator   #fa8128
 
         # colorclass          border  background text
-        focused_workspace     #893101 #d95700    #80400b
-        active_workspace      #893101 #893101    #cb0000
-        inactive_workspace    #893101 #d95700    #893101
+        focused_workspace     #893101 #fcae1e    #733300
+        active_workspace      #893101 #893101    #fa8128
+        inactive_workspace    #893101 #fa8128    #893101
         urgent_workspace      #893101 #893101    #c80000
         }
       }
@@ -305,21 +290,21 @@ colors {
 
 set $ws1 "1"
 assign [class="firefox"] $ws1
-exec --no-startup-id firefox
-bindsym $mod+F1 exec firefox
+exec firefox
+bindsym Ctrl+Mod1+f exec firefox
 
 set $ws2 "2"
 assign [class="Arcolinux-tweak-tool.py|Blender|com-eteks-sweethome3d-SweetHome3D"] $ws2
 for_window [class="Arcolinux-tweak-tool.py"]focus, floating enable, resize set 800 800, move position 2480 140
 bindsym $mod+Ctrl+e exec arcolinux-tweak-tool
 bindsym $mod+Ctrl+b exec blender
-bindsym $mod+shift+i exec com-eteks-sweethome3d-SweetHome3D
+bindsym $mod+Ctrl+i exec com-eteks-sweethome3d-SweetHome3D
 
 set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
 for_window [class="Cherrytree"]focus, floating enable, resize set 1100 960, move position 40 60
 exec cherrytree
-bindsym $mod+F3 exec cherrytree
+bindsym $mod+h exec cherrytree
 for_window [class="Xfce4-dict"]focus, floating enable, resize set 480 960, move position 1205 70
 bindsym $mod+Ctrl+d exec xfce4-dict
 
@@ -327,19 +312,19 @@ set $ws4 "4"
 assign [class="libreoffice"] $ws4
 for_window [class="libreoffice"]focus, floating enable, resize set 1360 1020, move position 280 32
 exec libreoffice
-bindsym $mod+F4 exec libreoffice
+bindsym $mod+l exec libreoffice
 
 set $ws5 "5"
 assign [class="kdenlive|Olive"] $ws5
 for_window [class="kdenlive|Olive"]focus
-bindsym $mod+F5 exec kdenlive
+bindsym $mod+k exec kdenlive
 bindsym $mod+Shift+o exec olive-editor
 
 set $ws6 "6"
 assign [class="Darktable|Gimp-2.10"] $ws6
 for_window [class="Darktable|Gimp-2.10"]focus
 bindsym $mod+Shift+t exec darktable
-bindsym $mod+F6 exec gimp-2.10
+bindsym $mod+g exec gimp-2.10
 for_window [instance="script-fu"] border normal
 for_window [title="Copying"] floating enable
 for_window [title="Deleting"] floating enable
@@ -352,7 +337,7 @@ for_window [window_role="setup"] floating enable
 set $ws7 "7"
 assign [class="Google Earth Pro"] $ws7
 for_window [class="Google Earth Pro"]focus
-bindsym $mod+e exec --no-startup-id google-earth-pro
+bindsym $mod+e exec google-earth-pro
 
 set $ws8 "8"
 assign [class="Pystopwatch|vlc|Xscreensaver-demo"] $ws8
@@ -369,7 +354,7 @@ bindsym $mod+Ctrl+x exec xscreensaver-demo
 set $ws9 "9"
 assign [class="Meld"] $ws9
 for_window [class="Meld"]focus, floating enable, resize set 1904 1040, move position 1928 32
-exec --no-startup-id meld
+exec meld
 bindsym $mod+F9 exec meld
 
 set $ws10 "10"
@@ -383,9 +368,16 @@ set $ws11 "11"
 assign [class="Atom|Nemo|Thunar|mpv"] $ws11
 for_window [class="Atom|Nemo|Thunar"]focus
 for_window [class="Nemo-terminal-prefs|mpv"]focus, floating enable, resize set 1280 854, move position center
-bindsym $mod+F2 exec atom ~/.config/i3/config
+bindsym $mod+F11 exec atom
+bindsym $mod+F1 exec atom ~/.config/alacritty/alacritty.yml
+bindsym $mod+F2 exec atom ~/.bashrc
+bindsym $mod+F3 exec atom ~/.config/bumblebee-status/bumblebee-status
+bindsym $mod+F4 exec atom ~/.config/i3/config
+bindsym $mod+F5 exec atom ~/.config/polybar/config
+bindsym $mod+F6 exec atom ~/.config/sxhkd/sxhkdrc
+bindsym $mod+F7 exec atom ~/.zshrc
 bindsym $mod+Shift+Return exec nemo
-exec --no-startup-id thunar
+exec thunar
 bindsym $mod+t exec thunar
 
 set $ws12 "12"
@@ -413,6 +405,16 @@ assign [class="discord"] $ws15
 for_window [class="discord"] floating enable, move position 2280 50, resize set 1200 960
 exec discord
 
+###################################
+#ᰜᰜᰜᰜᰜᰜ Screenshots ᰜᰜᰜᰜᰜᰜ#
+
+for_window [class="flameshot"] floating enable, resize set 730 480
+bindsym Ctrl+Mod1+s exec flameshot
+
+bindsym Shift+Print exec --no-startup-id "flameshot gui -p ~/Images/Flameshot"
+bindsym Print exec --no-startup-id scrot ' -%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir IMAGES)'
+bindsym Ctrl+Print exec --no-startup-id xfce4-screenshooter
+
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Application Launching ᰜᰜᰜᰜᰜᰜ#
 
@@ -426,34 +428,23 @@ bindsym $mod+w $rofi -show window
 # Start Rofi-Shortcuts
 bindsym $mod+Ctrl+r exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
 # Start Rofi Theme Selector
-bindsym Ctrl+mod1+r exec --no-startup-id rofi-theme-selector
+bindsym Ctrl+Mod1+r exec --no-startup-id rofi-theme-selector
 
-# Enable/disable logging
-bindsym $mod+u debuglog toggle
-
-#bindsym $mod+y
+####################################
+#ᰜᰜᰜᰜᰜᰜ Applications ᰜᰜᰜᰜᰜᰜ#
 
 for_window [class="Alacritty"] floating enable, resize set 760 700, move position 1082 306
 bindsym Mod1+comma [class="Alacritty"] scratchpad show
 bindsym $mod+Return exec alacritty
 
-bindsym $mod+Ctrl+f exec catfish; focus
+bindsym Ctrl+Mod1+c exec catfish; focus
 
-for_window [class="flameshot"] floating enable, resize set 730 480
-bindsym $mod+g exec flameshot
+bindsym Ctrl+Mod1+h exec handbrake
 
-for_window [class="Gnome-calendar"] resize set 844 800, move position 24 54
-for_window [class="Org.gnome.clocks"] floating enable, resize set 350 477
-for_window [class="Gnome-logs|Gnome-system-monitor"] floating enable, resize set 840 840, move position 2460 100
-# bindsym $mod+Ctrl+a exec gnome-calendar
-bindsym $mod+Ctrl+h exec gnome-clocks
-bindsym $mod+Ctrl+j exec gnome-logs
-
-bindsym $mod+Ctrl+i exec gvim
-bindsym $mod+shift+h exec handbrake
+bindsym $mod+i exec inkscape
 
 for_window [class="Kvantum Manager"] floating enable
-bindsym $mod+Mod1+k exec kvantummanager
+bindsym Ctrl+Mod1+k exec kvantummanager
 
 for_window [class="Mate-system-monitor"] floating enable, resize set 800 987, move position 560 48
 bindsym $mod+Ctrl+m exec mate-system-monitor
@@ -461,27 +452,19 @@ bindsym $mod+Ctrl+m exec mate-system-monitor
 bindsym $mod+n exec nitrogen
 for_window [class="Nitrogen"] floating enable, resize set 833 883, move position 1047 137
 
-bindsym Ctrl+mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+bindsym Ctrl+Mod1+p exec pamac-manager
+for_window [class="Pamac-manager"] focus, floating enable, move position center
+#i3-msg [class="Pamac-manager"] move position mouse
 
-bindsym $mod+Ctrl+n exec xfce4-notes
-
-for_window [class="Pamac-manager"] focus, floating enable
-bindsym Ctrl+mod1+g exec --no-startup-id pamac-manager
-
-bindsym $mod+Mod1+i exec inkscape
-
-bindsym $mod+p exec putty
+bindsym Ctrl+Mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 
 for_window [class="qt5ct"] floating enable, resize set 900 720, move position 510 160
 bindsym $mod+Ctrl+q exec qt5ct
 
-bindsym Shift+Print exec --no-startup-id "flameshot gui -p ~/Images/Flameshot"
-bindsym Print exec --no-startup-id scrot ' -%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir IMAGES)'
-bindsym Ctrl+Print exec --no-startup-id xfce4-screenshooter
-
 for_window [class="Xfce4-appfinder"] floating enable
 bindsym $mod+Ctrl+l exec --no-startup-id xfce4-appfinder
-bindsym Ctrl+mod1+m exec --no-startup-id xfce4-settings-manager
+bindsym $mod+Ctrl+n exec xfce4-notes
+bindsym Ctrl+Mod1+m exec --no-startup-id xfce4-settings-manager
 bindsym Ctrl+Shift+Escape exec --no-startup-id xfce4-taskmanager, focus
 
 #ᰜᰜᰜᰜᰜᰜ Loading Applications at Startup ᰜᰜᰜᰜᰜᰜ#
@@ -536,10 +519,9 @@ for_window [class="Gucharmap"] move scratchpad, resize set 800 600, move positio
 bindsym Mod1+period [class="Gucharmap"] scratchpad show
 bindsym Ctrl+Mod1+period exec gucharmap
 
-bindsym $mod+shift+a [class="Audio Recorder"] scratchpad show
+#bindsym $mod+shift+a [class="Audio Recorder"] scratchpad show
 bindsym $mod+s exec simplescreenrecorder
 bindsym $mod+shift+s [class="SimpleScreenRecorder"] scratchpad show
-bindsym $mod+shift+p [class="kcolorchooser"] scratchpad show
 
 ######################################
 #ᰜᰜᰜᰜᰜᰜ Border Ctrl ᰜᰜᰜᰜᰜᰜ#
@@ -579,30 +561,30 @@ for_window [class="Variety"] floating enable
 for_window [instance="Variety Preferences"] floating enable
 
 # trash wallpaper
-bindsym mod1+t exec --no-startup-id variety -t
+bindsym Mod1+t exec --no-startup-id variety -t
 # next wallpaper
-bindsym mod1+n exec --no-startup-id variety -n
-bindsym mod1+Right exec --no-startup-id variety -n
+bindsym Mod1+n exec --no-startup-id variety -n
+bindsym Mod1+Right exec --no-startup-id variety -n
 # previous wallpaper
-bindsym mod1+p exec --no-startup-id variety -p
-bindsym mod1+Left exec --no-startup-id variety -p
+bindsym Mod1+p exec --no-startup-id variety -p
+bindsym Mod1+Left exec --no-startup-id variety -p
 # favorite wallpaper
-bindsym mod1+f exec --no-startup-id variety -f
+bindsym Mod1+f exec --no-startup-id variety -f
 # pause wallpaper
-bindsym mod1+Up exec --no-startup-id variety --pause
+bindsym Mod1+Up exec --no-startup-id variety --pause
 # resume wallpaper
-bindsym mod1+Down exec --no-startup-id variety --resume
+bindsym Mod1+Down exec --no-startup-id variety --resume
 
 #ᰜᰜᰜᰜᰜᰜ Variety with Pywal ᰜᰜᰜᰜᰜᰜ#
 
 # next wallpaper
-bindsym mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+bindsym Mod1+Shift+n exec --no-startup-id variety -n && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # previous wallpaper
-bindsym mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+bindsym Mod1+Shift+p exec --no-startup-id variety -p && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # trash wallpaper
-bindsym mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+bindsym Mod1+Shift+t exec --no-startup-id variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 # update wallpaper
-bindsym mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
+bindsym Mod1+Shift+u exec --no-startup-id wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)
 
 #ᰜᰜᰜᰜᰜᰜ                     The End - Now Start Again                      ᰜᰜᰜᰜᰜᰜ#
 #########################################################################################
