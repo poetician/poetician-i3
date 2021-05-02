@@ -210,8 +210,8 @@ bar {
     # https://github.com/tobi-wan-kenobi/bumblebee-status
     status_command ~/.config/bumblebee-status/bumblebee-status \
     -m spacer network_traffic disk cpu \
-    -m weather -p weather.location=Notre-dame-du-laus weather.showminmax=true \
-    -m sun -p cpu.lat=46.1 cpu.lat=-75.6 -m redshift \
+    -m weather -p weather.location=######## weather.showminmax=true \
+    -m sun -p cpu.lat=#### cpu.lat=#### -m redshift \
     -m uptime datetime -p datetime.format=" %c " \
     -t orange-rainbow-long
 
