@@ -181,10 +181,10 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+space focus mode_toggle
 
 # Focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 
 # Focus the child "HHVH"
-bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 # Application focus
 focus_on_window_activation smart
@@ -210,7 +210,7 @@ bar {
     # https://github.com/tobi-wan-kenobi/bumblebee-status
     status_command ~/.config/bumblebee-status/bumblebee-status \
     -m spacer network_traffic disk cpu \
-    -m weather -p weather.location=######## weather.showminmax=true \
+    -m weather -p weather.location=###### weather.showminmax=true \
     -m sun -p cpu.lat=#### cpu.lat=#### -m redshift \
     -m uptime datetime -p datetime.format=" %c " \
     -t orange-rainbow-long
@@ -296,9 +296,9 @@ bindsym Ctrl+Mod1+f exec firefox
 set $ws2 "2"
 assign [class="Arcolinux-tweak-tool.py|Blender|com-eteks-sweethome3d-SweetHome3D"] $ws2
 for_window [class="Arcolinux-tweak-tool.py"]focus, floating enable, resize set 800 800, move position 2480 140
-bindsym $mod+Ctrl+e exec arcolinux-tweak-tool
-bindsym $mod+Ctrl+b exec blender
-bindsym $mod+Ctrl+i exec com-eteks-sweethome3d-SweetHome3D
+bindsym Ctrl+Mod1+a exec arcolinux-tweak-tool
+bindsym Ctrl+Mod1+b exec blender
+bindsym Ctrl+Mod1+i exec com-eteks-sweethome3d-SweetHome3D
 
 set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
@@ -368,7 +368,7 @@ set $ws11 "11"
 assign [class="Atom|Nemo|Thunar|mpv"] $ws11
 for_window [class="Atom|Nemo|Thunar"]focus
 for_window [class="Nemo-terminal-prefs|mpv"]focus, floating enable, resize set 1280 854, move position center
-bindsym $mod+F11 exec atom
+bindsym $mod+a exec atom
 bindsym $mod+F1 exec atom ~/.config/alacritty/alacritty.yml
 bindsym $mod+F2 exec atom ~/.bashrc
 bindsym $mod+F3 exec atom ~/.config/bumblebee-status/bumblebee-status
@@ -397,13 +397,14 @@ for_window [class="Gcolor2"]focus, move position 3220 40
 for_window [class="Oomox"] focus, floating enable, resize set 1260 990, move position 1925 40
 for_window [class="Lxappearance"] focus, floating enable, resize set 880 510, move position 2924 520
 bindsym $mod+Shift+g exec gcolor2
-bindsym $mod+Ctrl+a exec lxappearance
+bindsym Ctrl+Mod1+l exec lxappearance
 bindsym $mod+o exec oomox-gui
 
 set $ws15 "15"
 assign [class="discord"] $ws15
 for_window [class="discord"] floating enable, move position 2280 50, resize set 1200 960
 exec discord
+bindsym $mod+d exec discord
 
 ###################################
 #ᰜᰜᰜᰜᰜᰜ Screenshots ᰜᰜᰜᰜᰜᰜ#
@@ -439,9 +440,14 @@ bindsym $mod+Return exec alacritty
 
 bindsym Ctrl+Mod1+c exec catfish; focus
 
+bindsym Ctrl+Mod1+e exec balena-etcher-electron; focus
+
 bindsym Ctrl+Mod1+h exec handbrake
 
 bindsym $mod+i exec inkscape
+
+for_window [class="kitty"] floating enable
+bindsym $mod+y exec kitty; focus
 
 for_window [class="Kvantum Manager"] floating enable
 bindsym Ctrl+Mod1+k exec kvantummanager
