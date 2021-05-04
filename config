@@ -1,4 +1,5 @@
-#ᰜᰜᰜ ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸  ᰜ ᰜ ᗿᙀጣЪ𐔹ᙦβᗕ𑄺-ⴝㆤᎯէᙀᎦЪДⴽ ᕮᗤ𐏒𐌕𐏒𐀏ꤚ ᰜᰜᰜ#
+#ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
+#ᰜᰜᰜ ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸  ᰜᰜᰜ ᗿᙀጣЪ𐔹ᙦβᗕ𑄺-ⴝㆤᎯէᙀᎦЪДⴽ ᕮᗤ𐏒𐌕𐏒𐀏ꤚ ᰜᰜᰜ#
 #ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
 
 # https://github.com/poetician      # https://pastebin.com/u/poetician
@@ -192,13 +193,13 @@ focus_on_window_activation smart
 ####################################################
 #ᰜᰜᰜᰜᰜᰜ Bar and Workspace Appearance ᰜᰜᰜᰜᰜᰜ#
 
-#ᰜᰜᰜᰜᰜᰜ Bar Toggle ᰜᰜᰜᰜᰜᰜ#
 # Bar toggle, hide or show
-bindsym $mod+b bar mode invisible
-bindsym $mod+m  bar mode dock
+bindsym $mod+i bar mode invisible
+bindsym $mod+d  bar mode dock
 
 bar {
     height 22
+    workspace_min_width 24
     workspace_buttons yes
     font pango:Bauhaus 12, FontAwesome 12
     i3bar_command i3bar -t
@@ -210,8 +211,8 @@ bar {
     # https://github.com/tobi-wan-kenobi/bumblebee-status
     status_command ~/.config/bumblebee-status/bumblebee-status \
     -m spacer network_traffic disk cpu \
-    -m weather -p weather.location=###### weather.showminmax=true \
-    -m sun -p cpu.lat=#### cpu.lat=#### -m redshift \
+    -m weather -p weather.location=######### weather.showminmax=true \
+    -m sun -p cpu.lat=### cpu.lat=### -m redshift \
     -m uptime datetime -p datetime.format=" %c " \
     -t orange-rainbow-long
 
@@ -226,9 +227,7 @@ bar {
     # i3 bar colors
 
 colors {
-        background  #80400b1a
-        statusline  #fa8128
-        separator   #fa8128
+        background  #80400b40
 
         # colorclass          border  background text
         focused_workspace     #893101 #fcae1e    #733300
@@ -256,8 +255,6 @@ bar {
 
 colors {
         background  #893101
-        statusline  #cb0000
-        separator   #00000000
         }
       }
 
@@ -387,8 +384,9 @@ bindsym $mod+F12 exec qbittorrent
 exec qbittorrent
 
 set $ws13 "13"
-assign [class="Filezilla"] $ws13
-for_window [class="Filezilla"] focus
+assign [class="Bleachbit|Filezilla"] $ws13
+for_window [class="Bleachbit|Filezilla"] focus
+bindsym $mod+b exec bleachbit
 bindsym $mod+z exec filezilla
 
 set $ws14 "14"
@@ -404,7 +402,7 @@ set $ws15 "15"
 assign [class="discord"] $ws15
 for_window [class="discord"] floating enable, move position 2280 50, resize set 1200 960
 exec discord
-bindsym $mod+d exec discord
+bindsym Ctrl+Mod1+d exec discord
 
 ###################################
 #ᰜᰜᰜᰜᰜᰜ Screenshots ᰜᰜᰜᰜᰜᰜ#
@@ -444,7 +442,7 @@ bindsym Ctrl+Mod1+e exec balena-etcher-electron; focus
 
 bindsym Ctrl+Mod1+h exec handbrake
 
-bindsym $mod+i exec inkscape
+bindsym $mod+Ctrl+i exec inkscape
 
 for_window [class="kitty"] floating enable
 bindsym $mod+y exec kitty; focus
