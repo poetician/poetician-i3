@@ -12,15 +12,12 @@
 
 #ᰜᰜᰜᰜᰜᰜ Key Names ᰜᰜᰜᰜᰜᰜ#
 
-# Mod = Super key / Mod4        # Control = Ctrl key            # Mod1 = Alt key
-# Shift = Shift key             # Return = Enter or Return key  # Escape = Escape key
-# Pause = Pause key             # Print = Print key             # Tab = Tab key
+# Mod = Mod4      # Shift = Shift   # Return = Enter
+# Control = Ctrl  # Mod1 = Alt      # Escape = Escape
+# Pause = Pause   # Print = Print   # Tab = Tab
 
 # Define the $mod variable key
 set $mod Mod4
-
-#ᰜᰜᰜᰜᰜᰜ Enable/disable logging ᰜᰜᰜᰜᰜᰜ#
-bindsym $mod+u debuglog toggle
 
 #ᰜᰜᰜᰜᰜᰜ Dual Monitor Setup ᰜᰜᰜᰜᰜᰜ#
 
@@ -43,8 +40,14 @@ workspace 13 output $Screen2
 workspace 14 output $Screen2
 workspace 15 output $Screen2
 
-# Use arandr for the configuration
+#ᰜᰜᰜᰜᰜᰜ Display Settings ᰜᰜᰜᰜᰜᰜ#
+
 exec xrandr --no-startup-id --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 -mode 1920x1080 --pos 1920x0 --rotate normal
+exec killall picom &&
+exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+bindsym Ctrl+Mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
+exec killall redshift &&
+exec redshift &
 
 #####################################################
 #ᰜᰜᰜᰜᰜᰜ Workspace Switching Functions ᰜᰜᰜᰜᰜᰜ#
@@ -115,7 +118,7 @@ bindsym Ctrl+Shift+Up resize shrink height 10 px or 10 ppt
 bindsym Ctrl+Shift+Down resize grow height 10 px or 10 ppt
 bindsym Ctrl+Shift+Left resize shrink width 10 px or 10 ppt
 
-#ᰜᰜᰜᰜᰜᰜ Resize i3 Gaps ᰜᰜᰜᰜᰜᰜ#
+#ᰜᰜᰜᰜᰜᰜ Resize Gaps ᰜᰜᰜᰜᰜᰜ#
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left current|all set|plus|minus|toggle
 
 bindsym Ctrl+Shift+a gaps outer current toggle 40
@@ -187,8 +190,8 @@ bindsym $mod+p focus parent
 # Focus the child "HHVH"
 bindsym $mod+c focus child
 
-# Application focus
-focus_on_window_activation smart
+# Application focus smart|urgent|focus|none
+focus_on_window_activation urgent
 
 ####################################################
 #ᰜᰜᰜᰜᰜᰜ Bar and Workspace Appearance ᰜᰜᰜᰜᰜᰜ#
@@ -204,15 +207,15 @@ bar {
     font pango:Bauhaus 12, FontAwesome 12
     i3bar_command i3bar -t
     tray_output HDMI-A-0
-    tray_padding 2
+    tray_padding 1
     position top
 
     # OPTION 1 : Bumblebee-status
     # https://github.com/tobi-wan-kenobi/bumblebee-status
     status_command ~/.config/bumblebee-status/bumblebee-status \
     -m spacer network_traffic disk cpu \
-    -m weather -p weather.location=######### weather.showminmax=true \
-    -m sun -p cpu.lat=### cpu.lat=### -m redshift \
+    -m weather -p weather.location=########## weather.showminmax=true \
+    -m sun -p cpu.lat=#### cpu.lat=##### -m redshift \
     -m uptime datetime -p datetime.format=" %c " \
     -t orange-rainbow-long
 
@@ -295,7 +298,7 @@ assign [class="Arcolinux-tweak-tool.py|Blender|com-eteks-sweethome3d-SweetHome3D
 for_window [class="Arcolinux-tweak-tool.py"]focus, floating enable, resize set 800 800, move position 2480 140
 bindsym Ctrl+Mod1+a exec arcolinux-tweak-tool
 bindsym Ctrl+Mod1+b exec blender
-bindsym Ctrl+Mod1+i exec com-eteks-sweethome3d-SweetHome3D
+bindsym $mod+Ctrl+s exec com-eteks-sweethome3d-SweetHome3D
 
 set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
@@ -386,7 +389,7 @@ exec qbittorrent
 set $ws13 "13"
 assign [class="Bleachbit|Filezilla"] $ws13
 for_window [class="Bleachbit|Filezilla"] focus
-bindsym $mod+b exec bleachbit
+bindsym $mod+Ctrl+b exec bleachbit
 bindsym $mod+z exec filezilla
 
 set $ws14 "14"
@@ -417,7 +420,7 @@ bindsym Ctrl+Print exec --no-startup-id xfce4-screenshooter
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Application Launching ᰜᰜᰜᰜᰜᰜ#
 
-set $rofi exec rofi -show-icons -lines 9 -columns 2 -eh 1 -padding 100 -width 60 -font "Federation 11"
+set $rofi exec rofi -show-icons -lines 4 -columns 6 -eh 1 -padding 100 -width 60 -font "Federation 11"
 # Start drun Mode
 bindsym $mod+r $rofi -show drun
 # Start Rofi Combi Mode
@@ -438,11 +441,12 @@ bindsym $mod+Return exec alacritty
 
 bindsym Ctrl+Mod1+c exec catfish; focus
 
-bindsym Ctrl+Mod1+e exec balena-etcher-electron; focus
+for_window [class="balena-etcher-electron"] move position 1940 320
+bindsym $mod+Ctrl+e exec etcher; focus
 
-bindsym Ctrl+Mod1+h exec handbrake
+bindsym $mod+Ctrl+h exec handbrake; focus
 
-bindsym $mod+Ctrl+i exec inkscape
+bindsym $mod+Ctrl+i exec inkscape; focus
 
 for_window [class="kitty"] floating enable
 bindsym $mod+y exec kitty; focus
@@ -460,10 +464,10 @@ bindsym Ctrl+Mod1+p exec pamac-manager
 for_window [class="Pamac-manager"] focus, floating enable, move position center
 #i3-msg [class="Pamac-manager"] move position mouse
 
-bindsym Ctrl+Mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
-
 for_window [class="qt5ct"] floating enable, resize set 900 720, move position 510 160
-bindsym $mod+Ctrl+q exec qt5ct
+bindsym $mod+Ctrl+q exec qt5ct; focus
+
+bindsym $mod+Ctrl+t exec urxvt; focus
 
 for_window [class="Xfce4-appfinder"] floating enable
 bindsym $mod+Ctrl+l exec --no-startup-id xfce4-appfinder
@@ -476,13 +480,10 @@ bindsym Ctrl+Shift+Escape exec --no-startup-id xfce4-taskmanager, focus
 #xmodmap -e "keysym BackSpace = Delete" -e "keysym Delete = BackSpace"
 exec setxkbmap -option caps:swapescape
 exec nitrogen --restore
-exec killall picom &&
-exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
+for_window [class="Polkit-gnome-authentication-agent-1"] focus, move position 2760 460
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 #exec_always --no-startup-id ~/.config/polybar/launch.sh &
 exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
-exec killall redshift &&
-exec redshift &
 exec_always --no-startup-id unclutter --timeout 2
 exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
@@ -510,7 +511,7 @@ exec --no-startup-id megasync
 for_window [class="Dialog|Engrampa|File-roller|Font-manager"] floating enable move position 180 80
 for_window [class="Galculator|Gnome-calendar|Gnome-disks|^Gnome-font-viewer$"] floating enable
 for_window [class="GParted|^Gpick$|Grub-customizer"] floating enable
-for_window [class="System-config-printer.py|Termite"] floating enable
+for_window [class="System-config-printer.py|URxvt"] floating enable
 for_window [class="Xfce4-settings-manager|Xfce4-taskmanager"] floating enable
 
 #ᰜᰜᰜᰜᰜᰜ Scratchpad ᰜᰜᰜᰜᰜᰜ#
