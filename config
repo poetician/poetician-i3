@@ -2,13 +2,12 @@
 #ᰜᰜᰜ ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸  ᰜᰜᰜ ᗿᙀጣЪ𐔹ᙦβᗕ𑄺-ⴝㆤᎯէᙀᎦЪДⴽ ᕮᗤ𐏒𐌕𐏒𐀏ꤚ ᰜᰜᰜ#
 #ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
 
-# https://github.com/poetician      # https://pastebin.com/u/poetician
+#ᰜ https://github.com/poetician ᰜᰜᰜ https://pastebin.com/u/poetician ᰜ#
 
 # Developer URL:https://i3wm.org/
 # Version: 4.19.1 (2021-02-01) © 2009 Michael Stapelberg and contributors.
 
-# Derived in part from ArcoLinux default:
-# https://github.com/arcolinux
+# Derived in part from ArcoLinux default: https://github.com/arcolinux
 
 #ᰜᰜᰜᰜᰜᰜ Key Names ᰜᰜᰜᰜᰜᰜ#
 
@@ -49,6 +48,25 @@ bindsym Ctrl+Mod1+o exec --no-startup-id ~/.config/i3/scripts/picom-toggle.sh
 exec killall redshift &&
 exec redshift &
 
+#ᰜᰜᰜᰜᰜᰜ Reload Changed Configuration ᰜᰜᰜᰜᰜᰜ#
+
+# Restart i3 in place (preserves the layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Reload the configuration file (problematic with some apps; logging out/in is preferred)
+bindsym $mod+Shift+c reload
+
+#ᰜᰜᰜᰜᰜᰜ Stop Applications ᰜᰜᰜᰜᰜᰜ#
+
+# Kill focused window
+bindsym $mod+q kill
+
+# Xkill focused window
+bindsym --release $mod+Escape exec xkill
+
+# Hibernate, Lockscreen, Logout, Reboot, Suspend
+bindsym $mod+x exec arcolinux-logout
+
 #####################################################
 #ᰜᰜᰜᰜᰜᰜ Workspace Switching Functions ᰜᰜᰜᰜᰜᰜ#
 
@@ -86,25 +104,6 @@ bindsym $mod+Shift+bracketleft move container to workspace $ws13; workspace $ws1
 bindsym $mod+Shift+bracketright move container to workspace $ws14; workspace $ws14
 bindsym $mod+Shift+grave move container to workspace $ws15; workspace $ws15
 
-#ᰜᰜᰜᰜᰜᰜ Reload Changed Configuration ᰜᰜᰜᰜᰜᰜ#
-
-# Restart i3 in place (preserves the layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-
-# Reload the configuration file (problematic with some apps; logging out/in is preferred)
-bindsym $mod+Shift+c reload
-
-#ᰜᰜᰜᰜᰜᰜ Stop Applications ᰜᰜᰜᰜᰜᰜ#
-
-# Kill focused window
-bindsym $mod+q kill
-
-# Xkill focused window
-bindsym --release $mod+Escape exec xkill
-
-# Hibernate, Lockscreen, Logout, Reboot, Suspend
-bindsym $mod+x exec arcolinux-logout
-
 #ᰜᰜᰜᰜᰜᰜ Resize Windows ᰜᰜᰜᰜᰜᰜ#
 # Resizing windows with keyboard only: https://unix.stackexchange.com/q/255344/150597
 
@@ -131,6 +130,36 @@ bindsym Ctrl+Shift+t gaps outer all set 60
 
 # popup_during_fullscreen smart|ignore|leave_fullscreen
 popup_during_fullscreen leave_fullscreen
+
+######################################
+#ᰜᰜᰜᰜᰜᰜ Border Ctrl ᰜᰜᰜᰜᰜᰜ#
+
+# default_border normal | none | pixel
+default_border none
+# default_floating_border normal | none| pixel
+default_floating_border none
+
+# hide_edge_borders none|vertical|horizontal|both|smart
+hide_edge_borders none
+bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
+
+# changing border style
+## Not used
+
+new_window none
+# new_window normal | new_window none | pixel
+
+new_float pixel 1
+# new_float normal | none | pixel
+
+#ᰜᰜᰜᰜᰜᰜ i3-Next-Gaps ᰜᰜᰜᰜᰜᰜ#
+# Settings for I3 next gaps https://github.com/Airblader/i3/tree/gaps-next
+
+#for_window [class="^.*"] pixel 4
+gaps inner 12
+gaps outer 8
+smart_gaps on
+smart_borders on
 
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Navigating Containers ᰜᰜᰜᰜᰜᰜ#
@@ -214,8 +243,8 @@ bar {
     # https://github.com/tobi-wan-kenobi/bumblebee-status
     status_command ~/.config/bumblebee-status/bumblebee-status \
     -m spacer network_traffic disk cpu \
-    -m weather -p weather.location=########## weather.showminmax=true \
-    -m sun -p cpu.lat=#### cpu.lat=##### -m redshift \
+    -m weather -p weather.location=######### weather.showminmax=true \
+    -m sun -p cpu.lat=#### cpu.lat=#### -m redshift \
     -m uptime datetime -p datetime.format=" %c " \
     -t orange-rainbow-long
 
@@ -420,7 +449,7 @@ bindsym Ctrl+Print exec --no-startup-id xfce4-screenshooter
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Application Launching ᰜᰜᰜᰜᰜᰜ#
 
-set $rofi exec rofi -show-icons -lines 4 -columns 6 -eh 1 -padding 100 -width 60 -font "Federation 11"
+set $rofi exec rofi -show-icons -fake-transparency -lines 5 -columns 5 -padding 100 -width 60 -font "Federation 11"
 # Start drun Mode
 bindsym $mod+r $rofi -show drun
 # Start Rofi Combi Mode
@@ -527,36 +556,6 @@ bindsym Ctrl+Mod1+period exec gucharmap
 #bindsym $mod+shift+a [class="Audio Recorder"] scratchpad show
 bindsym $mod+s exec simplescreenrecorder
 bindsym $mod+shift+s [class="SimpleScreenRecorder"] scratchpad show
-
-######################################
-#ᰜᰜᰜᰜᰜᰜ Border Ctrl ᰜᰜᰜᰜᰜᰜ#
-
-# default_border normal | none | pixel
-default_border none
-# default_floating_border normal | none| pixel
-default_floating_border none
-
-# hide_edge_borders none|vertical|horizontal|both|smart
-hide_edge_borders none
-bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
-
-# changing border style
-## Not used
-
-new_window none
-# new_window normal | new_window none | pixel
-
-new_float pixel 1
-# new_float normal | none | pixel
-
-#ᰜᰜᰜᰜᰜᰜ i3-Next-Gaps ᰜᰜᰜᰜᰜᰜ#
-# Settings for I3 next gaps https://github.com/Airblader/i3/tree/gaps-next
-
-#for_window [class="^.*"] pixel 4
-gaps inner 12
-gaps outer 8
-smart_gaps on
-smart_borders on
 
 ##############################################
 #ᰜᰜᰜᰜᰜᰜ Variety for Wallpapers ᰜᰜᰜᰜᰜᰜ#
