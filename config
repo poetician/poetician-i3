@@ -1,7 +1,7 @@
 #ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
 #ᰜᰜᰜ ㄗ 𑁣 𑁗 ፖ ༑ ᙅ ༑ ₳ ⴄ 𓁿Ꝣᰃ𑊸  ᰜᰜᰜ ᗿᙀጣЪ𐔹ᙦβᗕ𑄺-ⴝㆤᎯէᙀᎦЪДⴽ ᕮᗤ𐏒𐌕𐏒𐀏ꤚ ᰜᰜᰜ#
 #ᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜᰜ#
-
+#ᰜᰜ                                                                   ᰜᰜ#
 #ᰜ https://github.com/poetician ᰜᰜᰜ https://pastebin.com/u/poetician ᰜ#
 
 # Developer URL:https://i3wm.org/
@@ -11,9 +11,9 @@
 
 #ᰜᰜᰜᰜᰜᰜ Key Names ᰜᰜᰜᰜᰜᰜ#
 
-# Mod = Mod4      # Shift = Shift   # Return = Enter
-# Control = Ctrl  # Mod1 = Alt      # Escape = Escape
-# Pause = Pause   # Print = Print   # Tab = Tab
+# Control = Ctrl  # Shift = Shift   # Escape = Escape
+# Pause = Pause   # Mod1 = Alt      # Return = Enter
+# Mod = Mod4      # Tab = Tab       # Print = Print
 
 # Define the $mod variable key
 set $mod Mod4
@@ -107,26 +107,29 @@ bindsym $mod+Shift+grave move container to workspace $ws15; workspace $ws15
 #ᰜᰜᰜᰜᰜᰜ Resize Windows ᰜᰜᰜᰜᰜᰜ#
 # Resizing windows with keyboard only: https://unix.stackexchange.com/q/255344/150597
 
-bindsym $mod+Ctrl+Right resize grow width 1 px or 1 ppt
-bindsym $mod+Ctrl+Up resize shrink height 1 px or 1 ppt
-bindsym $mod+Ctrl+Down resize grow height 1 px or 1 ppt
-bindsym $mod+Ctrl+Left resize shrink width 1 px or 1 ppt
+bindsym $mod+Ctrl+Right resize grow width 1 px
+bindsym $mod+Ctrl+Up resize shrink height 1 px
+bindsym $mod+Ctrl+Down resize grow height 1 px
+bindsym $mod+Ctrl+Left resize shrink width 1 px
 
-bindsym Ctrl+Shift+Right resize grow width 10 px or 10 ppt
-bindsym Ctrl+Shift+Up resize shrink height 10 px or 10 ppt
-bindsym Ctrl+Shift+Down resize grow height 10 px or 10 ppt
-bindsym Ctrl+Shift+Left resize shrink width 10 px or 10 ppt
+bindsym Ctrl+Shift+Right resize grow width 10 px
+bindsym Ctrl+Shift+Up resize shrink height 10 px
+bindsym Ctrl+Shift+Down resize grow height 10 px
+bindsym Ctrl+Shift+Left resize shrink width 10 px
 
 #ᰜᰜᰜᰜᰜᰜ Resize Gaps ᰜᰜᰜᰜᰜᰜ#
 # gaps inner|outer|horizontal|vertical|top|right|bottom|left current|all set|plus|minus|toggle
 
-bindsym Ctrl+Shift+a gaps outer current toggle 40
-bindsym Ctrl+Shift+s gaps outer current plus 10
+bindsym Ctrl+Shift+o gaps outer current toggle 40
+bindsym Ctrl+Shift+p gaps outer current plus 10
 bindsym Ctrl+Shift+d gaps outer current minus 10
 bindsym Ctrl+Shift+w gaps outer all set 10
 bindsym Ctrl+Shift+e gaps outer all set 20
 bindsym Ctrl+Shift+r gaps outer all set 40
 bindsym Ctrl+Shift+t gaps outer all set 60
+bindsym Ctrl+Shift+y gaps inner all set 20
+bindsym Ctrl+Shift+u gaps inner all set 40
+bindsym Ctrl+Shift+i gaps inner all set 60
 
 # popup_during_fullscreen smart|ignore|leave_fullscreen
 popup_during_fullscreen leave_fullscreen
@@ -143,19 +146,15 @@ default_floating_border none
 hide_edge_borders none
 bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
 
-# changing border style
-## Not used
-
-new_window none
 # new_window normal | new_window none | pixel
+new_window none
 
-new_float pixel 1
 # new_float normal | none | pixel
+new_float pixel 1
 
 #ᰜᰜᰜᰜᰜᰜ i3-Next-Gaps ᰜᰜᰜᰜᰜᰜ#
 # Settings for I3 next gaps https://github.com/Airblader/i3/tree/gaps-next
 
-#for_window [class="^.*"] pixel 4
 gaps inner 12
 gaps outer 8
 smart_gaps on
@@ -220,121 +219,108 @@ bindsym $mod+p focus parent
 bindsym $mod+c focus child
 
 # Application focus smart|urgent|focus|none
-focus_on_window_activation urgent
+focus_on_window_activation smart
 
 ####################################################
 #ᰜᰜᰜᰜᰜᰜ Bar and Workspace Appearance ᰜᰜᰜᰜᰜᰜ#
 
+#ᰜᰜᰜᰜᰜᰜ Bar Toggle ᰜᰜᰜᰜᰜᰜ#
 # Bar toggle, hide or show
-bindsym $mod+i bar mode invisible
-bindsym $mod+d  bar mode dock
+bindsym $mod+b bar mode invisible
+bindsym $mod+m  bar mode dock
 
 bar {
-    height 22
-    workspace_min_width 24
+    height 26
     workspace_buttons yes
+    workspace_min_width 26
     font pango:Bauhaus 12, FontAwesome 12
     i3bar_command i3bar -t
     tray_output HDMI-A-0
-    tray_padding 1
+    tray_padding 2
     position top
 
     # OPTION 1 : Bumblebee-status
     # https://github.com/tobi-wan-kenobi/bumblebee-status
     status_command ~/.config/bumblebee-status/bumblebee-status \
-    -m spacer network_traffic disk cpu \
-    -m weather -p weather.location=######### weather.showminmax=true \
-    -m sun -p cpu.lat=#### cpu.lat=#### -m redshift \
-    -m uptime datetime -p datetime.format=" %c " \
-    -t orange-rainbow-long
+    -m spacer spacer spacer spacer network_traffic spacer spacer sun spacer spacer redshift spacer spacer \
+    -m shortcut -p shortcut.cmds="alacritty -e vim ~/.config/i3/config;alacritty -e htop" shortcut.labels="vim;htop" \
+    -m spacer spacer uptime spacer spacer datetime -p datetime.format=" %c " -m spacer spacer pasink pasource \
+    -m spacer spacer todo spacer spacer spacer \
+    -t gold-green
 
-    # OPTION 2 : conky
+    # OPTION 2 : Conky-statusbar
     # https://i3wm.org/docs/user-contributed/conky-i3bar.html
 
     #status_command ~/.config/i3/start-conky-i3statusbar.sh
 
   ##START THEMING BAR
-  #Theme name : orange-rainbow-long
-
+  #Theme name : gold-green
     # i3 bar colors
 
-colors {
-        background  #80400b40
-
-        # colorclass          border  background text
-        focused_workspace     #893101 #fcae1e    #733300
-        active_workspace      #893101 #893101    #fa8128
-        inactive_workspace    #893101 #fa8128    #893101
-        urgent_workspace      #893101 #893101    #c80000
+    colors {
+        background  #ffdf00
+        statusline  #d6d000
+        separator   #ead800
+        #                    border  backgr.  text
+        focused_workspace    #ffdf00 #8caf14  #ead800
+        inactive_workspace   #ffdf00 #ffdf00  #1c6f24
+        active_workspace     #ffdf00 #2d7924  #d6d000
+        urgent_workspace     #ffdf00 #005917  #ffdf00
         }
       }
 
 bar {
-        height 21
+        height 20
         workspace_buttons no
         font pango:Bauhaus 12, FontAwesome 12
-        i3bar_command i3bar
+        i3bar_command i3bar -t
         output HDMI-A-0
         tray_output none
         position bottom
 
         status_command ~/.config/bumblebee-status/bumblebee-status \
-        -m spacer hostname kernel spacer load spacer memory spacer sensors2 spacer \
-        -m battery-upower spacer pasink spacer pasource spacer todo spacer \
-        -m shortcut -p shortcut.cmds="alacritty;alacritty -e bpytop" shortcut.labels="term;bpytop" \
-        -m spacer pacman spacer \
-        -t orange-rainbow-long
+        -m spacer spacer spacer hostname spacer kernel spacer load \
+        -m spacer spacer cpu spacer spacer memory spacer spacer disk \
+        -m spacer spacer sensors2 spacer spacer battery-upower spacer spacer spacer \
+        -t gold-green
 
 colors {
-        background  #893101
+        background  #ffdf00
         }
       }
 
-### Usable modules: amixer battery layout nic pacman ping progress sensors system title traffic arch-update "-p arch-update.left-click=" xkcd
-### Problematic modules: dunst hddtemp playerctl smartstatus
+### Usable modules: amixer arch-update "-p arch-update.left-click=" battery hddtemp
+### indicator layout nic pacman ping progress sensors title traffic xkcd
+### weather -p weather.location=Notre-dame-du-laus weather.showminmax=true -m
+### Problematic modules: dunst playerctl smartstatus twmn
 
-        # Option 3: Polybar
-        # Comment out the Bar section and conky, and remove hashtag in the next line to load Polybar; log back in to see the change.
+        # Option 5: Polybar
+        # Comment out the Bar section, and remove hashtag in the next line to load Polybar; log back in to see the change.
         # exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
   ##STOP THEMING BAR
-
-  ##START THEMING WM
-  # Theme name : seal-brown
-
-        # Window color settings
-        # class                 border  background text    indicator
-        client.focused          #893101 #893101    #CB0000 #d95700
-        client.unfocused        #893101 #CB0000    #80400b #d95700
-        client.focused_inactive #893101 #d95700    #80400b #d95700
-        client.placeholder      #893101 #893101    #CB0000
-        client.urgent           #d95700 #d95700    #ff0000 #d95700
-
-        client.background       #80400b
-
-  ##STOP THEMING WM
 
 ###################################################
 #ᰜᰜᰜᰜᰜᰜ Applications and Directives ᰜᰜᰜᰜᰜᰜ#
 
 set $ws1 "1"
-assign [class="firefox"] $ws1
+assign [class="firefox|Midori"] $ws1
 exec firefox
 bindsym Ctrl+Mod1+f exec firefox
 
 set $ws2 "2"
 assign [class="Arcolinux-tweak-tool.py|Blender|com-eteks-sweethome3d-SweetHome3D"] $ws2
-for_window [class="Arcolinux-tweak-tool.py"]focus, floating enable, resize set 800 800, move position 2480 140
+for_window [class="Arcolinux-tweak-tool.py"]focus, floating enable, move position center
 bindsym Ctrl+Mod1+a exec arcolinux-tweak-tool
 bindsym Ctrl+Mod1+b exec blender
 bindsym $mod+Ctrl+s exec com-eteks-sweethome3d-SweetHome3D
 
 set $ws3 "3"
 assign [class="Cherrytree|Xfce4-dict"] $ws3
-for_window [class="Cherrytree"]focus, floating enable, resize set 1100 960, move position 40 60
+for_window [class="Cherrytree"]focus, floating enable, resize set 960 960, move position 40 60
 exec cherrytree
 bindsym $mod+h exec cherrytree
-for_window [class="Xfce4-dict"]focus, floating enable, resize set 480 960, move position 1205 70
+for_window [class="Xfce4-dict"]focus, floating enable, resize set 480 960, move position 1180 60
 bindsym $mod+Ctrl+d exec xfce4-dict
 
 set $ws4 "4"
@@ -369,10 +355,13 @@ for_window [class="Google Earth Pro"]focus
 bindsym $mod+e exec google-earth-pro
 
 set $ws8 "8"
-assign [class="Pystopwatch|vlc|Xscreensaver-demo"] $ws8
-for_window [class="Pystopwatch"] focus, floating enable, move position 2000 80, resize set 300 100
+assign [class="Pamac-manager|Pystopwatch|vlc|Xscreensaver-demo"] $ws8
+
+bindsym Ctrl+Mod1+p exec pamac-manager
+for_window [class="Pamac-manager"] focus, floating enable, move position 3095 32
+for_window [class="Pystopwatch"] focus, floating enable, move position 2358 191, resize set 300 100
 exec pystopwatch
-for_window [class="vlc"] floating enable, move position 3220 180, resize set 520 100
+for_window [class="vlc"] floating enable, move position 3210 880, resize set 520 100
 exec vlc
 bindsym $mod+v exec vlc
 for_window [class="Xscreensaver-demo"] floating enable, move position 1932 460, resize set 1088 608
@@ -400,7 +389,7 @@ for_window [class="Nemo-terminal-prefs|mpv"]focus, floating enable, resize set 1
 bindsym $mod+a exec atom
 bindsym $mod+F1 exec atom ~/.config/alacritty/alacritty.yml
 bindsym $mod+F2 exec atom ~/.bashrc
-bindsym $mod+F3 exec atom ~/.config/bumblebee-status/bumblebee-status
+bindsym $mod+F3 exec atom ~/.config/bumblebee-status/themes/extreme-golden-04.json
 bindsym $mod+F4 exec atom ~/.config/i3/config
 bindsym $mod+F5 exec atom ~/.config/polybar/config
 bindsym $mod+F6 exec atom ~/.config/sxhkd/sxhkdrc
@@ -422,7 +411,7 @@ bindsym $mod+Ctrl+b exec bleachbit
 bindsym $mod+z exec filezilla
 
 set $ws14 "14"
-assign [class="Gcolor2|Lxappearance|Oomox|__main__.py"] $ws14
+assign [class="Lxappearance|Oomox|__main__.py"] $ws14
 for_window [class="Gcolor2"]focus, move position 3220 40
 for_window [class="Oomox"] focus, floating enable, resize set 1260 990, move position 1925 40
 for_window [class="Lxappearance"] focus, floating enable, resize set 880 510, move position 2924 520
@@ -436,35 +425,25 @@ for_window [class="discord"] floating enable, move position 2280 50, resize set 
 exec discord
 bindsym Ctrl+Mod1+d exec discord
 
-###################################
-#ᰜᰜᰜᰜᰜᰜ Screenshots ᰜᰜᰜᰜᰜᰜ#
-
-for_window [class="flameshot"] floating enable, resize set 730 480
-bindsym Ctrl+Mod1+s exec flameshot
-
-bindsym Shift+Print exec --no-startup-id "flameshot gui -p ~/Images/Flameshot"
-bindsym Print exec --no-startup-id scrot ' -%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir IMAGES)'
-bindsym Ctrl+Print exec --no-startup-id xfce4-screenshooter
-
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Application Launching ᰜᰜᰜᰜᰜᰜ#
 
-set $rofi exec rofi -show-icons -fake-transparency -lines 5 -columns 5 -padding 100 -width 60 -font "Federation 11"
+set $rofi exec rofi -show-icons -fake-transparency -auto-select -lines 3 -columns 4 -width 60 -font "Bauhaus 14"
 # Start drun Mode
-bindsym $mod+r $rofi -show drun
+bindsym $mod+r $rofi -show drun -location 6 -m HDMI-A-0
 # Start Rofi Combi Mode
-bindsym $mod+Ctrl+c $rofi -show combi
+bindsym $mod+Ctrl+c $rofi -show combi -location 6 -m HDMI-A-0
 # Start Rofi Window Mode
-bindsym $mod+w $rofi -show window
+bindsym $mod+w $rofi -show window -location 6 -m HDMI-A-0
 # Start Rofi-Shortcuts
-bindsym $mod+Ctrl+r exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh
+bindsym $mod+Ctrl+r exec ~/.config/rofi/rofi-shortcuts/rofi-shortcuts.sh -m HDMI-A-0
 # Start Rofi Theme Selector
-bindsym Ctrl+Mod1+r exec --no-startup-id rofi-theme-selector
+bindsym Ctrl+Mod1+r exec --no-startup-id rofi-theme-selector -m HDMI-A-0
 
 ####################################
 #ᰜᰜᰜᰜᰜᰜ Applications ᰜᰜᰜᰜᰜᰜ#
 
-for_window [class="Alacritty"] floating enable, resize set 760 700, move position 1082 306
+for_window [class="Alacritty"] floating enable, resize set 760 700, move position 1110 280
 bindsym Mod1+comma [class="Alacritty"] scratchpad show
 bindsym $mod+Return exec alacritty
 
@@ -488,10 +467,6 @@ bindsym $mod+Ctrl+m exec mate-system-monitor
 
 bindsym $mod+n exec nitrogen
 for_window [class="Nitrogen"] floating enable, resize set 833 883, move position 1047 137
-
-bindsym Ctrl+Mod1+p exec pamac-manager
-for_window [class="Pamac-manager"] focus, floating enable, move position center
-#i3-msg [class="Pamac-manager"] move position mouse
 
 for_window [class="qt5ct"] floating enable, resize set 900 720, move position 510 160
 bindsym $mod+Ctrl+q exec qt5ct; focus
@@ -534,6 +509,16 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id dropbox start
 # MEGA
 exec --no-startup-id megasync
+
+###################################
+#ᰜᰜᰜᰜᰜᰜ Screenshots ᰜᰜᰜᰜᰜᰜ#
+
+for_window [class="flameshot"] floating enable, resize set 730 480
+bindsym Ctrl+Mod1+s exec flameshot
+
+bindsym Shift+Print exec --no-startup-id "flameshot gui -p ~/Images/Flameshot"
+bindsym Print exec --no-startup-id scrot ' -%Y-%m-%d-%s_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir IMAGES)'
+bindsym Ctrl+Print exec --no-startup-id xfce4-screenshooter
 
 #ᰜᰜᰜᰜᰜᰜ Floating or Tiled ᰜᰜᰜᰜᰜᰜ#
 
