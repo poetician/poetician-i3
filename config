@@ -230,9 +230,9 @@ bindsym $mod+b bar mode invisible
 bindsym $mod+m  bar mode dock
 
 bar {
-    height 26
+    height 22
     workspace_buttons yes
-    workspace_min_width 26
+	  workspace_min_width 24
     font pango:Bauhaus 12, FontAwesome 12
     i3bar_command i3bar -t
     tray_output HDMI-A-0
@@ -241,36 +241,36 @@ bar {
 
     # OPTION 1 : Bumblebee-status
     # https://github.com/tobi-wan-kenobi/bumblebee-status
-    status_command ~/.config/bumblebee-status/bumblebee-status \
+     status_command ~/Data/bumblebee-status/bumblebee-status \
     -m spacer spacer spacer spacer network_traffic spacer spacer sun spacer spacer redshift spacer spacer \
     -m shortcut -p shortcut.cmds="alacritty -e vim ~/.config/i3/config;alacritty -e htop" shortcut.labels="vim;htop" \
     -m spacer spacer uptime spacer spacer datetime -p datetime.format=" %c " -m spacer spacer pasink pasource \
     -m spacer spacer todo spacer spacer spacer \
-    -t gold-green
+    -t 0258-wheat-sunset-T
 
-    # OPTION 2 : Conky-statusbar
-    # https://i3wm.org/docs/user-contributed/conky-i3bar.html
-
-    #status_command ~/.config/i3/start-conky-i3statusbar.sh
+    #status_command i3status
+    #status_command i3status -c ~/.config/i3/i3status.conf
 
   ##START THEMING BAR
-  #Theme name : gold-green
+  #Theme name : 0258 Wheat Sunset
+
     # i3 bar colors
 
     colors {
-        background  #ffdf00
-        statusline  #d6d000
-        separator   #ead800
-        #                    border  backgr.  text
-        focused_workspace    #ffdf00 #8caf14  #ead800
-        inactive_workspace   #ffdf00 #ffdf00  #1c6f24
-        active_workspace     #ffdf00 #2d7924  #d6d000
-        urgent_workspace     #ffdf00 #005917  #ffdf00
+           background  #48809a66
+           statusline  #48809a66
+           separator   #48809a66
+           #                    border    backgr.    text
+           focused_workspace    #00000000 #363333  #48809a
+           inactive_workspace   #00000000 #899ba2  #545454
+           active_workspace     #00000000 #48809a  #FEE589
+           urgent_workspace     #FEE589   #FEE589  #363333
         }
       }
 
 bar {
-        height 20
+        height 24
+        workspace_min_width 24
         workspace_buttons no
         font pango:Bauhaus 12, FontAwesome 12
         i3bar_command i3bar -t
@@ -278,24 +278,23 @@ bar {
         tray_output none
         position bottom
 
-        status_command ~/.config/bumblebee-status/bumblebee-status \
-        -m spacer spacer spacer hostname spacer kernel spacer load \
-        -m spacer spacer cpu spacer spacer memory spacer spacer disk \
-        -m spacer spacer sensors2 spacer spacer battery-upower spacer spacer spacer \
-        -t gold-green
+        status_command ~/Data/bumblebee-status/bumblebee-status \
+        -m spacer spacer spacer spacer hostname spacer spacer spacer kernel \
+        -m spacer spacer cpu spacer spacer memory spacer spacer spacer disk \
+        -m spacer spacer spacer spacer spacer spacer sensors2 spacer spacer battery-upower spacer spacer spacer \
+        -t 0258-wheat-sunset-B
 
 colors {
-        background  #ffdf00
+        background  #48809a66
         }
       }
 
-### Usable modules: amixer arch-update "-p arch-update.left-click=" battery hddtemp
-### indicator layout nic pacman ping progress sensors title traffic xkcd
-### weather -p weather.location=Notre-dame-du-laus weather.showminmax=true -m
+### Usable modules: amixer arch-update "-p arch-update.left-click=" battery hddtemp indicator layout nic
+### pacman ping progress sensors title traffic xkcd -m shortcut -p shortcut.cmds="alacritty -e vim ~/.config/i3/config;alacritty -e bpytop" shortcut.labels="vim;bpytop" \
 ### Problematic modules: dunst playerctl smartstatus twmn
 
-        # Option 5: Polybar
-        # Comment out the Bar section, and remove hashtag in the next line to load Polybar; log back in to see the change.
+        # Option 2: Polybar
+        # Comment out the Bar section and conky, and remove hashtag in the next line to load Polybar; log back in to see the change.
         # exec_always --no-startup-id ~/.config/polybar/launch.sh &
 
   ##STOP THEMING BAR
@@ -357,8 +356,7 @@ bindsym $mod+e exec google-earth-pro
 set $ws8 "8"
 assign [class="Pamac-manager|Pystopwatch|vlc|Xscreensaver-demo"] $ws8
 
-bindsym Ctrl+Mod1+p exec pamac-manager
-for_window [class="Pamac-manager"] focus, floating enable, move position 3095 32
+
 for_window [class="Pystopwatch"] focus, floating enable, move position 2358 191, resize set 300 100
 exec pystopwatch
 for_window [class="vlc"] floating enable, move position 3210 880, resize set 520 100
@@ -405,17 +403,19 @@ bindsym $mod+F12 exec qbittorrent
 exec qbittorrent
 
 set $ws13 "13"
-assign [class="Bleachbit|Filezilla"] $ws13
+assign [class="Pamac-manager|Bleachbit|Filezilla"] $ws13
 for_window [class="Bleachbit|Filezilla"] focus
+bindsym Ctrl+Mod1+p exec pamac-manager
+for_window [class="Pamac-manager"] focus, floating enable, move position 2320 180
 bindsym $mod+Ctrl+b exec bleachbit
 bindsym $mod+z exec filezilla
 
 set $ws14 "14"
 assign [class="Lxappearance|Oomox|__main__.py"] $ws14
-for_window [class="Gcolor2"]focus, move position 3220 40
-for_window [class="Oomox"] focus, floating enable, resize set 1260 990, move position 1925 40
-for_window [class="Lxappearance"] focus, floating enable, resize set 880 510, move position 2924 520
-bindsym $mod+Shift+g exec gcolor2
+for_window [class="Gcolor3"]focus, floating enable, resize set 700 300, move position 3085 690
+for_window [class="Oomox"] focus, floating enable, resize set 1030 990, move position 1920 50
+for_window [class="Lxappearance"] focus, floating enable, resize set 800 600, move position 3040 50
+bindsym $mod+Shift+g exec gcolor3
 bindsym Ctrl+Mod1+l exec lxappearance
 bindsym $mod+o exec oomox-gui
 
@@ -428,9 +428,9 @@ bindsym Ctrl+Mod1+d exec discord
 #############################################
 #ᰜᰜᰜᰜᰜᰜ Application Launching ᰜᰜᰜᰜᰜᰜ#
 
-set $rofi exec rofi -show-icons -fake-transparency -auto-select -lines 3 -columns 4 -width 60 -font "Bauhaus 14"
+set $rofi exec rofi -show-icons -fake-transparency -auto-select -lines 7 -columns 1 -width 25 -font "Bauhaus 14"
 # Start drun Mode
-bindsym $mod+r $rofi -show drun -location 6 -m HDMI-A-0
+bindsym $mod+r $rofi -show drun -location 7 -m HDMI-A-0
 # Start Rofi Combi Mode
 bindsym $mod+Ctrl+c $rofi -show combi -location 6 -m HDMI-A-0
 # Start Rofi Window Mode
